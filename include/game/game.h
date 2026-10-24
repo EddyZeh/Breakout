@@ -17,6 +17,12 @@ enum GameState {
 	GAME_WIN
 };
 
+enum Direction {
+	UP,
+	RIGHT,
+	DOWN,
+	LEFT
+};
 
 class Game {
 public: 
@@ -35,6 +41,10 @@ public:
 	void processInput(float dt);
 	void update(float dt);
 	void render();
+	void doCollisions();
+
+	void resetLevel();
+	void resetPlayer();
 };
 
 #endif // !GAME_H
