@@ -9,6 +9,7 @@ Texture::Texture() { }
 Texture::Texture( std::string path, aiTextureType type, bool gammaCorrection) 
 				: path(path), type(type), gammaCorrection(gammaCorrection){
 	generate();
+	load(false);
 }
 
 void Texture::generate() {

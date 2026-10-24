@@ -1,7 +1,9 @@
 #include "../../../include/graphics/models/spriteRenderer.h"
 
 SpriteRenderer::SpriteRenderer(Shader& shader)
-: shader(shader) {}
+: shader(shader) {
+    initRenderData();
+}
 
 SpriteRenderer::~SpriteRenderer()
 {

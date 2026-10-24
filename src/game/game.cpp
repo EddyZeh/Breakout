@@ -24,7 +24,7 @@ void Game::init(){
 	ResourceManager::getShader("sprite").setInt("image", 0);
 	ResourceManager::getShader("sprite").setMat4("projection", projection);
 	
-	Renderer = new SpriteRenderer(ResourceManager::getShader("shader"));
+	Renderer = new SpriteRenderer(ResourceManager::getShader("sprite"));
 	ResourceManager::createTexture("awesomeface.png");
 }
 

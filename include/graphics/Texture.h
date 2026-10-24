@@ -25,7 +25,7 @@ public:
 					      GLenum wrapS = GL_REPEAT,
 						  GLenum wrapT = GL_REPEAT);
 
-	unsigned int id;
+	unsigned int id = 0;
 	//std::string dir;
 	std::string path;
 	aiTextureType type;
