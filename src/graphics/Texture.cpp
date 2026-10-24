@@ -6,8 +6,8 @@
 
 Texture::Texture() { }
 
-Texture::Texture( std::string path, aiTextureType type, bool gammaCorrection) 
-				: path(path), type(type), gammaCorrection(gammaCorrection){
+Texture::Texture( std::string path, bool alpha) 
+				: path(path), alpha(alpha){
 	generate();
 	load(false);
 }
@@ -22,21 +22,8 @@ void Texture::load(bool flip){
 	int width, height, nChannels;
 	unsigned char* data = stbi_load(path.c_str(), &width, &height, &nChannels, 0);
 
-	GLenum internalFormat;
-	GLenum colorMode = GL_RGB;
-	switch (nChannels) {
-	case 1: 
-		internalFormat = colorMode = GL_RED;
-		break;
-	case 3:
-		internalFormat = gammaCorrection ? GL_SRGB : GL_RGB;
-		colorMode = GL_RGB;
-		break;
-	case 4:
-		internalFormat = gammaCorrection ? GL_SRGB_ALPHA : GL_RGBA;
-		colorMode = GL_RGBA;
-		break;
-	}
+	GLenum internalFormat = alpha ? GL_RGBA : GL_RGB;
+	GLenum colorMode = alpha ? GL_RGBA : GL_RGB;
 
 	if (data) {
 		glBindTexture(GL_TEXTURE_2D, id);

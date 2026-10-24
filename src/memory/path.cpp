@@ -27,3 +27,8 @@ std::filesystem::path Paths::Cubemaps(){
 	return Assets() / "cubemaps";
 }
 
+std::filesystem::path Paths::Levels()
+{
+	return Assets() / "levels";
+}
+

@@ -1,7 +1,7 @@
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
 
-#include "../include/game.h"
+#include "../include/game/game.h"
 #include "../include/io/Keyboard.h"
 #include "../include/io/Mouse.h"
 #include "../include/memory/ResourceManager.h"

@@ -9,7 +9,7 @@ SpriteRenderer::~SpriteRenderer()
 {
 }
 
-void SpriteRenderer::DrawSprite(Texture& texture, glm::vec2 position, glm::vec2 size, float rotate, glm::vec3 color){
+void SpriteRenderer::drawSprite(Texture& texture, glm::vec2 position, glm::vec2 size, float rotate, glm::vec3 color){
     shader.activate();
     glm::mat4 model = glm::mat4(1.0f);
     model = glm::translate(model, glm::vec3(position, 0.0));

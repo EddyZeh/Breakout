@@ -1,4 +1,4 @@
-#include "../../include/game.h"
+#include "../../include/game/game.h"
 #include "../../include/graphics/models/spriteRenderer.h"
 #include "../../include/memory/ResourceManager.h"
 
@@ -25,7 +25,23 @@ void Game::init(){
 	ResourceManager::getShader("sprite").setMat4("projection", projection);
 	
 	Renderer = new SpriteRenderer(ResourceManager::getShader("sprite"));
-	ResourceManager::createTexture("awesomeface.png");
+
+	ResourceManager::createTexture("background.jpg", false);
+	ResourceManager::createTexture("awesomeface.png", true);
+	ResourceManager::createTexture("block.png", false);
+	ResourceManager::createTexture("block_solid.png", false);
+
+	// load levels
+	GameLevel one;		one.load(ResourceManager::getLevelPath("one.lvl").c_str(), width, height / 2);
+	GameLevel two;		two.load(ResourceManager::getLevelPath("two.lvl").c_str(), width, height / 2);
+	GameLevel three;	three.load(ResourceManager::getLevelPath("three.lvl").c_str(), width, height / 2);
+	GameLevel four;		four.load(ResourceManager::getLevelPath("four.lvl").c_str(), width, height / 2);
+	Levels.push_back(one);
+	Levels.push_back(two);
+	Levels.push_back(three);
+	Levels.push_back(four);
+
+	level = 1;
 }
 
 void Game::processInput(float dt)
@@ -37,6 +53,11 @@ void Game::update(float dt)
 }
 
 void Game::render(){
-	Renderer->DrawSprite(ResourceManager::getTexure("awesomeface.png"),
-		glm::vec2(200.0f, 200.0f), glm::vec2(300.0f, 400.0f), 45.0f, glm::vec3(0.0f, 1.0f, 0.0f));
+	if (State == GAME_ACTIVE) {
+		Renderer->drawSprite(ResourceManager::getTexure("background.jpg"),
+			glm::vec2(0.0f, 0.0f), glm::vec2(width, height), 0.0f);
+
+		// draw Level
+		Levels[level].draw(*Renderer);
+	}
 }

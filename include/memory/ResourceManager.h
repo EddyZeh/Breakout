@@ -22,7 +22,7 @@ public:
 
 	static Shader& getShader(const std::string& name);
 
-	static Texture createTexture(const std::string& name);
+	static Texture createTexture(const std::string& name, bool alpha);
 	static Texture& getTexure(const std::string& name);
 
 	static void clear();
@@ -32,6 +32,8 @@ public:
 	static std::string getCubemapPath(const std::string& name);
 
 	static std::string getModelPath(const std::string& name);
+
+	static std::string getLevelPath(const std::string& name);
 };
 
 

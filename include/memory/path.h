@@ -13,6 +13,7 @@ public:
 	static std::filesystem::path Textures();
 	static std::filesystem::path Models();
 	static std::filesystem::path Cubemaps();
+	static std::filesystem::path Levels();
 
 private:
 	inline static std::filesystem::path executableDirectory;

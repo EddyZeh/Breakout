@@ -6,14 +6,12 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-#include <assimp/scene.h>
-
 #include <string>
 
 class Texture {
 public:
 	Texture();
-	Texture(std::string path, aiTextureType type = aiTextureType_NONE, bool gammaCorrection = false);
+	Texture(std::string path, bool alpha = false);
 
 	void generate();
 	void load(bool flip = true);
@@ -28,9 +26,8 @@ public:
 	unsigned int id = 0;
 	//std::string dir;
 	std::string path;
-	aiTextureType type;
 
-	bool gammaCorrection;
+	bool alpha;
 
 	void bind();
 

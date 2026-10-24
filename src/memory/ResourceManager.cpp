@@ -36,8 +36,8 @@ Shader& ResourceManager::getShader(const std::string& name){
 	return Shaders[name];
 }
 
-Texture ResourceManager::createTexture(const std::string& name){
-	Textures[name] = Texture(getTexturePath(name));
+Texture ResourceManager::createTexture(const std::string& name, bool alpha){
+	Textures[name] = Texture(getTexturePath(name), alpha);
 	return Textures[name];
 }
 
@@ -63,6 +63,11 @@ std::string ResourceManager::getCubemapPath(const std::string& name){
 
 std::string ResourceManager::getModelPath(const std::string& name){
 	return (Paths::Models() / name).string();
+}
+
+std::string ResourceManager::getLevelPath(const std::string& name)
+{
+	return (Paths::Levels() / name).string();
 }
 
 

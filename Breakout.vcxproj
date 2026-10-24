@@ -131,11 +131,17 @@ if not exist "$(OutDir)logs" mkdir "$(OutDir)logs"</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include=".gitignore" />
+    <None Include="src\assets\levels\four.lvl" />
+    <None Include="src\assets\levels\one.lvl" />
+    <None Include="src\assets\levels\three.lvl" />
+    <None Include="src\assets\levels\two.lvl" />
     <None Include="src\shaders\sprite.frag" />
     <None Include="src\shaders\sprite.vert" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\game\game.cpp" />
+    <ClCompile Include="src\game\gameLevel.cpp" />
+    <ClCompile Include="src\game\gameObject.cpp" />
     <ClCompile Include="src\graphics\models\spriteRenderer.cpp" />
     <ClCompile Include="src\graphics\Shader.cpp" />
     <ClCompile Include="src\graphics\Texture.cpp" />
@@ -148,7 +154,9 @@ if not exist "$(OutDir)logs" mkdir "$(OutDir)logs"</Command>
     <ClCompile Include="src\memory\ResourceManager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\game.h" />
+    <ClInclude Include="include\game\game.h" />
+    <ClInclude Include="include\game\gameLevel.h" />
+    <ClInclude Include="include\game\gameObject.h" />
     <ClInclude Include="include\graphics\models\spriteRenderer.h" />
     <ClInclude Include="include\graphics\Shader.h" />
     <ClInclude Include="include\graphics\Texture.h" />
@@ -159,6 +167,13 @@ if not exist "$(OutDir)logs" mkdir "$(OutDir)logs"</Command>
     <ClInclude Include="include\memory\glMemory.hpp" />
     <ClInclude Include="include\memory\path.h" />
     <ClInclude Include="include\memory\ResourceManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="src\assets\textures\awesomeface.png" />
+    <Image Include="src\assets\textures\background.jpg" />
+    <Image Include="src\assets\textures\block.png" />
+    <Image Include="src\assets\textures\block_solid.png" />
+    <Image Include="src\assets\textures\paddle.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
